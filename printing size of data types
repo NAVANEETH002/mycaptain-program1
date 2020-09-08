@@ -1,0 +1,16 @@
+#include<iostream.h>
+#include<conio.h>
+using namespace std;
+
+int main()
+{
+  int intdata;
+  float floatdata;
+  double doubledata;
+  char characterdata;
+  cout<<"SIZE OF CHAR:"<<sizeof(characterdata)<<endl;
+  cout<<"SIZE OF INT:"<<sizeof(intdata)<<endl;
+  cout<<"SIZE OF FLOAT:"<<sizeof(floatdata)<<endl;
+  cout<<"SIZE OF DOUBLE:"<<sizeof(doubledata)<<endl;
+  return 0:
+}
