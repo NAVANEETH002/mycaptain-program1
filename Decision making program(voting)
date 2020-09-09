@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int z,age,month1,day1,year1,month2,day2,year2;
+    cout<<"If you know your age then press 1"<<"\n otherwise enter 0"<<endl;
+    cin>>z;
+    if(z==1)
+    {
+        cout<<"Enter your age:"<<endl;
+        cin>>age;
+        if(age<18)
+        {
+            cout<<"You are not able to vote now"<<endl;
+        }
+        else
+        {
+            cout<<"You are able to vote"<<endl;
+            
+        }
+        
+    }
+    else
+    {
+        cout<<"Enter to day date"<<endl;
+        cin>>day1>>month1>>year1;
+        cout<<"Enter your date of birth:"<<endl;
+        cin>>day2>>month2>>year2;
+        if((year1-year2)>18)
+        {
+        cout<<"Your age is :"<<(year1-year2)<<"\n You are able vote now"<<endl;
+        }
+        if((year1-year2)==18)
+        {
+            if((month1-month2)>0)
+            {
+                cout<<"Your age is 18"<<"\n You are able to vote";
+                
+            }
+            if((month1-month2)==0)
+            {
+                if((day1-day2)>0)
+                {
+                    cout<<"Your age is 18"<<"\n You are able to vote";
+                }
+            }
+        }
+    }
+    return 1;
+    
+}
+
+
+
