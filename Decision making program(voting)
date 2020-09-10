@@ -46,6 +46,11 @@ int main()
                 }
             }
         }
+        else
+        {
+             cout<<"Your age is lesser than 18"<<"\nYou are not able to vote now";
+        }
+
     }
     return 1;
     
