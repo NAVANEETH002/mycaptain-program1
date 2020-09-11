@@ -12,7 +12,7 @@ int main()
             cout<<"\n"<<"\t";
             cin>>arr[i];
         }
-    cout<<"Elements are : "<<endl;
+    cout<<"Entered elements are : "<<endl;
     for(i=0;i<5;i++)
     {
         p=&arr[i];
