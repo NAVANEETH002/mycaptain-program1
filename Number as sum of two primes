@@ -1,0 +1,54 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int primenumber(int x);
+int main()
+{
+    int a,i,n=1,b;
+    clrscr();
+    //a=i+(a-i)
+    cout<<"Enter the number :";
+    cin>>a;
+    if(a>3)
+    {
+    for(i=2;i<=(a/2);i++)
+    {
+       if(primenumber(i)==0)
+        {
+            b=a-i;
+       if(primenumber(b)==0)
+        cout<<"\n"<<a<<"\t=\t"<<i<<"\t+\t"<<b;
+            n=0;
+            }
+       if(n==1)
+        cout<<a<<"  can't be expressed as sum of prime numbers";
+         
+        }
+        }
+      else
+        {
+        cout<<a<<" is less than or equal to 3"<<endl;
+        cout<<"The given number is first or second prime number.So it can't be expressed as sum of primes";
+        }
+        
+    
+    return 0;
+    
+}
+
+    
+    int primenumber(int x)
+{
+    int i,j,flag=0;
+    for(i=2;i<=(x/2);i++)
+    {
+        j=(x%i);
+        if(j==0)
+                {
+                   flag=1;
+                   break;
+                }
+    }
+    return flag;
+}
+    
