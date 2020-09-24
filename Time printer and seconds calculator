@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+class time
+{   public:
+    int hrs,mins,secs;
+    public:
+     int entertime();
+     int displaytime();
+     int calsec(int x,int y,int z);
+};
+int time ::entertime()
+    {   cout<<"Enter the time:"<<endl;
+        cin>>hrs;
+        cin>>mins;
+        cin>>secs;
+        return 0;
+    }
+    
+int time ::displaytime()
+    {
+        clrscr();
+        cout<<"hours :"<<hrs<<endl;
+        cout<<"minutes :"<<mins<<endl;
+        cout<<"seconds :"<<secs<<endl;
+        return 0;
+    }
+int time ::calsec(int x,int y,int z)
+    {
+        int seconds=0;
+        seconds=seconds+z+(y*60)+(x*60*60);
+        cout<<"Time in seconds is :"<<seconds<<endl;
+
+        return 0;
+    }
+    
+    
+
+
+
+int main() {
+    class time t1;
+    
+    t1.entertime();
+    clrscr();
+    
+    t1.displaytime();
+    t1.calsec(t1.hrs,t1.mins,t1.secs);
+    return 0;
+        
+}
