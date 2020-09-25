@@ -19,17 +19,25 @@ int time ::entertime()
     
 int time ::displaytime()
     {
-        clrscr();
-        cout<<"hours :"<<hrs<<endl;
-        cout<<"minutes :"<<mins<<endl;
-        cout<<"seconds :"<<secs<<endl;
+        if(hrs<10)
+        cout<<" The time is "<<"0"<<hrs;
+        else
+        cout<<"The time is "<<hrs;
+        if(mins<10)
+        cout<<":0"<<mins;
+        else
+        cout<<":"<<mins;
+        if(secs<10)
+        cout<<":0"<<secs;
+        else
+        cout<<":"<<secs;
         return 0;
     }
 int time ::calsec(int x,int y,int z)
     {
         int seconds=0;
         seconds=seconds+z+(y*60)+(x*60*60);
-        cout<<"Time in seconds is :"<<seconds<<endl;
+        cout<<"\n Time in seconds is :"<<seconds<<endl;
 
         return 0;
     }
