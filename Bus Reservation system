@@ -1,0 +1,236 @@
+
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+//#include<conio>
+#include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+using namespace std;
+static int p=0;
+class bus
+{
+    private:
+    int busno,arrtime,deptime,n,seat[32];
+char drivname[20],gender[10][10][10],passname[10][10][10],from[10],to[10];
+    public:
+    void inputbuses();
+    void buses();
+    void reserve();
+    void searchbus();
+    void showpasslist();
+    void display(int x);
+    void availability();
+    void showbus();
+}b[20];
+void bus::inputbuses()
+{
+    int i,n;
+    cout<<"\n Enter no of buses to add :";
+    cin>>i;
+    for(n=0;n<=p;n++)
+    {
+        cout<<"\n Enter bus number : ";
+        cin>>b[n].busno;
+        cout<<"\n Enter driver name :";
+        cin>>b[n].drivname;
+        cout<<"\n Enter from station :";
+        cin>>b[n].from;
+        cout<<"\n departure time :";
+        cin>>b[n].deptime;
+        cout<<"\n Enter to station :";
+        cin>>b[n].to;
+        cout<<"\n Enter arrived time :";
+        cin>>b[n].arrtime;
+        p=p+1;
+        if(n>i)
+        break;
+       
+    }
+}
+void bus::buses()
+{
+    cout<<"\t\t\tBUSES LIST"<<endl;
+    int n;
+    for(n=0;n<p;n++)
+    {
+        cout<<"\n \t\t*************"<<endl;
+        cout<<"\n\t Bus Number : "<<b[n].busno;
+     cout<<"\t Driver Name :"<<b[n].drivname;
+   
+     cout<<"\n From and time of departure :"<<b[n].from<<" "<<b[n].deptime;
+    cout<<"\n To station and time of arrival :"<<b[n].to<<" "<<b[n].arrtime;
+    }
+}
+void bus::reserve()
+{
+    int seatno,n,i;
+    int busnum;
+   
+        cout<<"\n Enter bus number :";
+    cin>>busnum;
+    for(n=0;n<p;n++)
+    {
+        if(b[n].busno!=busnum)
+        break;
+    }
+   while(n<=p)
+    {
+        cout<<"\n Enter seat number :";
+        cin>>seatno;
+        if(seatno>32)
+        cout<<"\n There are only 32 seats";
+        else
+        {
+           if(strcmp(b[n].passname[seatno/4][(seatno%4)-1],"Empty")==0){
+            cout<<"\n Enter passenger name:";
+            cin>>b[n].passname[seatno/4][(seatno%4)-1];
+            cout<<"\n Enter gender of passenger :";
+            cin>>b[n].gender[seatno/4][(seatno%4)-1];
+            for(i=0;i<=n;i++)
+            b[n].seat[i]=seatno;
+            }
+            else
+            cout<<"\n Already "<< seatno <<" is reserved";
+        }
+       
+    }
+}
+void bus::availability()
+{
+    int i,j;
+    for(i=0;i<p;i++)
+    {
+        for(j=0;j<p;j++)
+        {
+        if(strcmp(b[i].passname[i][j],"Empty")==0)
+        {
+        cout<<"\n Seats are available";
+        break;
+        }
+        }
+    }
+}
+
+ void bus:: display(int x)
+{
+    int t;
+    t=x+1;
+    while(x<t)
+    {
+        cout<<"\n\t\t\t**********"<<endl;
+        cout<<"bus number :"<<b[x].busno;
+        cout<<"\t bus driver :"<<b[x].drivname;
+        cout<<"\t from"<<b[x].from<<" to "<<b[x].to;
+        cout<<"\t departure time "<<b[x].deptime<<" destination arrival time "<<b[x].arrtime;
+        x++;
+       
+      }
+}
+void bus::searchbus()
+{
+    int choice,n,c;
+    char stage[10];
+    while(1)
+    {
+    cout<<"\n 1.by number"<<"\t 2.by stage"<<"\t 3 exit";
+    cout<<"\n enter your choice:";
+    cin>>choice;
+    switch(choice)
+    {
+    case 1 : cout<<"\n enter number :";
+        cin>>c;
+        for(n=0;n<p;n++)
+        {
+            if(c!=b[n].busno)
+            break;
+            else
+            display(n);
+        }
+        break;
+     case 2 : cout<<"\n Enter starting point :";
+        cin>>stage;
+         for(n=0;n<p;n++)
+        {
+        if(strcmp(b[n].from,stage)==0)
+            b[n].display(n);
+            else
+            break;
+    }
+        break;
+        case 3 : exit(0);
+        break;
+        cout<<"\n enter correct choice";
+       
+    }
+    }
+}
+void bus::showpasslist()
+{
+int i,j,n=p,bn;
+cout<<"\n Enter busnumber:";
+cin>>bn;
+
+for(n=0;n<p;n++)
+{
+cout<<"\n";
+if(b[n].busno==bn){
+   cout<<"bus number :"<<b[n].busno;
+for(i=0;i<=n;i++)
+for(j=0;j<=n;j++)
+{
+cout<<b[n].seat[i]<<"\t\t"<<b[n].passname[i][j];
+cout<<"\t"<<b[n].gender[i][j];    
+
+}
+}
+}
+}
+int main()
+{
+    //system("cls");
+    int s;
+    while(1)
+    {
+    cout<<"\n\t\t 1.enter buses"<<"\n\t\t 2.See buses"<<"\n\t\t 3.Search bus by number or stage"<<"\n\t\t 4.show passenger list"<<"\n\t\t 5.Search availabiliy"<<"\n\t\t 6.reserve seat"<<"\n\t\t 7.Exit";
+    cout<<"\n\t Enter your opinion or choice:";
+    cin>>s;
+    switch(s)
+    {
+    case 1 :
+    cout<<" \n choosed to enter buses :";
+   
+    b[p].inputbuses();
+    break;
+    case 2 :
+    cout<<"\n choosed to see bus :";
+    b[0].buses();
+    break;
+    case 3 :
+      cout<<"\n choosed to search buses :";
+    b[p].searchbus();
+    break;
+    case 4 :
+    cout<<"\n Entered to see passengers list :";
+    b[0].showpasslist();
+    break;
+    case 5 :
+    cout<<"\n Entered to search availability :";
+    b[0].availability();
+    break;
+    case 6 :
+    cout<<"\n Entered to reserve :";
+    b[p].reserve();
+    break;
+    case 7 :exit(0);
+    default :
+   
+    cout<<"\n enter correct choice :";
+    }
+    }
+    return 0;
+}
+
+
+
+
